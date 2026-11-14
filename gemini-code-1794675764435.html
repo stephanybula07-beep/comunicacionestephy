@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Command Center Operacional | Retail Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#071433',
+              900: '#0f265C',
+              850: '#132f6e',
+              800: '#183a87',
+              700: '#214ba6',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    body {
+      background-color: #071433;
+      background-image: radial-gradient(circle at 15% 15%, rgba(24, 58, 135, 0.45) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(15, 38, 92, 0.8) 0%, transparent 50%);
+      color: #f1f5f9;
+    }
+    .glass-card {
+      background: rgba(15, 38, 92, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(96, 165, 250, 0.22);
+      box-shadow: 0 10px 25px -5px rgba(2, 8, 23, 0.55);
+    }
+    .glass-header {
+      background: rgba(11, 29, 71, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(96, 165, 250, 0.25);
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(30, 64, 175, 0.8);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #38bdf8;
+      border: 2px solid #0f265C;
+      margin-top: -6px;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #09193d; }
+    ::-webkit-scrollbar-thumb { background: #214ba6; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- Barra Superior y Segmentadores Globales -->
+  <header class="glass-header sticky top-0 z-40 px-4 lg:px-8 py-3.5">
+    <div class="max-w-[1600px] mx-auto flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center shadow-lg shadow-sky-500/20">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.12
